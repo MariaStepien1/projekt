@@ -1,3 +1,5 @@
+from urllib import request
+
 import cv2
 from flask import Flask
 from flask_restful import Resource, Api
@@ -16,6 +18,14 @@ class PeopleCounter(Resource):
 
         return {'count': len(boxes)}
 
+class PeopleCounterWithLinkGiven(Resource)
+    def get(self):
+        url = request.args.get('url')
+        if url:
+            img2 = cv2.imread(url)
+            boxes, weights = hog.detectMultiScale(img2, winStride=(5, 5))
+        else:
+            return{'error': 'url parameter not provided'}
 
 class HelloWorld(Resource):
     def get(self):
